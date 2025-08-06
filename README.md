@@ -16,7 +16,7 @@ To govern a company's integration landscape effectively, it's essential to have 
 3. What technologies and protocols are used
 4. What the internal integration structure looks like
 
-Answering these questions isn’t trivial and usually requires a team of skilled consultants. The challenge is that the low-level work involved is time-consuming, essential, and quickly becomes outdated as the landscape evolves. That’s why I built this app.
+Answering these questions isn’t trivial and usually requires a team of skilled consultants. The challenge is that the low-level work involved is time-consuming, tiresome, prone to mistakes, and quickly becomes outdated as the landscape evolves. That’s why I built this app.
 
 **So, what does this app do?**  
 It automates the low-level discovery work in an SAP Integration Suite tenant. You upload one or more integration flow packages (`.zip` files), and it returns a detailed `.csv` report that you can open in Excel, Google Sheets, or similar tools.
