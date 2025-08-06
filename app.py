@@ -19,25 +19,25 @@ if uploaded_files:
         with open(zip_path, "wb") as f:
             f.write(uploaded_file.getbuffer())
     
-    st.success(f"Saved {len(uploaded_files)} zip files to temporary path: {tmpdir}")
+    st.success(f"Analizando {len(uploaded_files)} archivos...")
 
     try:
         subprocess.run(["python3", "AutomaticASIS.py", tmpdir], check=True)
         subprocess.run(["python3", "InternalCalls.py", tmpdir], check=True)
     except subprocess.CalledProcessError:
-        st.error("Algo ha ido mal al analizar los paquetes.")
+        st.error("Algo ha ido mal analizando los paquetes :( ")
         st.stop()
 
     final_csv = os.path.join(tmpdir, "final_output.csv")
 
     if os.path.exists(final_csv):
         df = pd.read_csv(final_csv)
-        st.write("Here's a preview of the final output CSV:")
+        st.write("Aquí tienes una vista previa del archivo generado:")
         st.dataframe(df.head())
 
         with open(final_csv, "rb") as f:
             st.download_button(
-                "Download final CSV",
+                "Descargar reporte completo",
                 f,
                 file_name="processed_result.csv",
                 mime="text/csv"
@@ -45,3 +45,4 @@ if uploaded_files:
     else:
 
         st.error("No se ha generado ningún reporte. Por favor, selecciona archivos correspondientes a paquetes de SAP Integration Suite.")
+
