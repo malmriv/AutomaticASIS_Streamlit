@@ -5,8 +5,8 @@ import os
 import subprocess
 import pandas as pd
 
-st.title("Zip File Processor")
-st.write("Upload a `.zip` file and receive a processed `.csv` file in return.")
+st.title("🔍 SAP Integration Suite explorer")
+st.write("Selecciona uno o más paquetes (como archivos `.zip`) y descarga el reporte resultante.")
 
 uploaded_files = st.file_uploader("Upload one or more .zip files", type="zip", accept_multiple_files=True)
 
@@ -25,7 +25,7 @@ if uploaded_files:
         subprocess.run(["python3", "AutomaticASIS.py", tmpdir], check=True)
         subprocess.run(["python3", "InternalCalls.py", tmpdir], check=True)
     except subprocess.CalledProcessError:
-        st.error("There was an error running the processing scripts.")
+        st.error("Algo ha ido mal al analizar los paquetes.")
         st.stop()
 
     final_csv = os.path.join(tmpdir, "final_output.csv")
@@ -43,4 +43,5 @@ if uploaded_files:
                 mime="text/csv"
             )
     else:
-        st.error("Final CSV not found. Make sure your scripts write it to the temp directory.")
+
+        st.error("No se ha generado ningún reporte. Por favor, selecciona archivos correspondientes a paquetes de SAP Integration Suite.")
