@@ -38,8 +38,8 @@ When you upload files to the app via drag-and-drop, here's what happens under th
   - Adapter name
   - Transport protocol (e.g. HTTPS, SFTP, JDBC...)
   - Address/host (e.g. `https://mycrm.company.com/api/v1`)
-
-After that, a second script analyzes the `.csv` and adds two extra columns with internal call mappings ("who calls whom").
+- After that, a second script analyzes the `.csv` and adds two extra columns with internal call mappings ("who calls whom").
+- Everything is packaged in a Docker container which runs on [Streamlit](https://streamlit.io/). Disclaimer: I did use Google's [gemini-cli](https://github.com/google-gemini/gemini-cli) help for this part, because I had never used Streamlit before. I knew services like Vercel or Render, but they do not seem to allow temporary file creation. So, if anything does not work well, please let me know!
 
 ### Key features
 
